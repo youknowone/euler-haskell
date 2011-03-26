@@ -1,0 +1,3 @@
+#!/bin/bash
+ghc euler$1
+./euler$1
