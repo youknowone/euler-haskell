@@ -5,13 +5,13 @@ primes = primes_inner [] [2 ..]
 
 factors n
 	| n < 2 = [n]
-	| otherwise = factors_inner n n [] primes
+	| otherwise = factors_inner n [] primes
 	where
-	factors_inner value remain facts prms@(p:ps) 
+	factors_inner remain facts px@(p:ps) 
 		| remain == 1 = facts
 		| p * p > n = remain:facts
-		| remain `mod` p == 0 = factors_inner value (remain `div` p) (p:facts) prms
-		| otherwise = factors_inner value remain facts ps
+		| remain `mod` p == 0 = factors_inner (remain `div` p) (p:facts) px
+		| otherwise = factors_inner remain facts ps
 
 
 main = do
