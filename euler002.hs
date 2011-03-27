@@ -1,12 +1,7 @@
 
-fib_sum n = fib_sum_inner [1,0]
+fibonaccis = fib_inner 0 1
 	where
-	fib_sum_inner s@(x1:x2:xs)
-		| x > n = 0
-		| otherwise = even_value x + fib_sum_inner (x:s)
-		where
-			x = x1 + x2
-			even_value n = if even n then n else 0
+	fib_inner a b = a:(fib_inner b (a+b))
 
 main = do
-	print $ fib_sum 4000000
+	print $ sum (takeWhile (<= 4000000) ([n|n<-fibonaccis,even n]))
