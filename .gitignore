@@ -1,0 +1,9 @@
+# temporary files
+*.swp
+*~
+*.DS_Store
+
+# haskell remains
+euler???
+*.o
+*.hi

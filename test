@@ -1,3 +1,13 @@
 #!/bin/bash
-ghc euler$1
-./euler$1
+
+if [ $1 = 'clean' ]; then
+	rm *.hi
+	rm *.o
+	rm euler???
+	exit
+fi
+
+ghc euler$1 > /dev/null
+if [ $? == 0 ]; then
+	./euler$1
+fi
