@@ -29,8 +29,7 @@ max_mult cs = max_mult_inner cs 0
 		| length s < 5 = old_max
 		| otherwise = max_mult_inner cs new_max
 		where
-		cval c = (ord c) - (ord '0')
-		mult = foldl (*) 1 (map cval (take 5 s))
+		mult = product (map digitToInt (take 5 s))
 		new_max = if mult > old_max then mult else old_max
 
 main = do

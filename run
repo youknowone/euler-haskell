@@ -1,13 +1,2 @@
-#!/bin/bash
 
-if [ $1 = 'clean' ]; then
-	rm *.hi
-	rm *.o
-	rm euler???
-	exit
-fi
-
-ghc euler$1 > /dev/null
-if [ $? == 0 ]; then
-	./euler$1
-fi
+time runghc ~/Projects/euler-haskell/euler$1.hs
